@@ -1,21 +1,31 @@
-name: cedra
-description: "A new Flutter package project."
+name: cedra_basic_sdk
+description: Package for superficial work with the Cedra blockchain.
 version: 0.0.1
 homepage:
 
 environment:
-  sdk: ^3.7.2
+  sdk: '>=3.7.2 <4.0.0'
   flutter: ">=1.17.0"
 
 dependencies:
   flutter:
     sdk: flutter
+  cryptography: ^2.7.0
+  hex: ^0.2.0
+  cryptography_flutter: ^2.3.2
+  http: ^0.13.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^5.0.0
-
+  flutter_lints: ^3.0.1
+  build_runner: ^2.3.3
 
 flutter:
-
+  plugin:
+    platforms:
+      android:
+        package: com.example.cedra
+        pluginClass: CedraPlugin
+      ios:
+        pluginClass: CedraPlugin
