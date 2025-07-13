@@ -38,12 +38,10 @@ class CedraAccount {
     address = bytesToHex(publicKey.bytes);
   }
 
-Future<Map<String, dynamic>> fetchInfo() async {
-    if (address.isEmpty) {
-      throw Exception('Address is not set.');
-    }
-    return await client.get('account/$address');
+  Future<Map<String, dynamic>> getAccountInfo(String address) async {
+    return await client.get('accounts/$address');
   }
+
 
   String get publicKeyHex => bytesToHex(keyPair.publicKeyBytes);
   String get privateKeyHex => bytesToHex(keyPair.privateKeyBytes);

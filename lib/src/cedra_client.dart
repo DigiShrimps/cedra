@@ -14,6 +14,8 @@ class CedraClient {
         return CedraClient._(CedraNetworkUrl.testnet);
       case CedraNetwork.mainnet:
         return CedraClient._(CedraNetworkUrl.mainnet);
+      case CedraNetwork.faucet:
+        return CedraClient._(CedraNetworkUrl.faucet);
       case CedraNetwork.custom:
         if (customUrl == null || customUrl.isEmpty) {
           throw ArgumentError('Custom URL must be provided for CedraNetwork.custom');
@@ -47,9 +49,11 @@ class CedraClient {
   }
 }
 
+
 extension CedraClientPing on CedraClient {
   Future<bool> ping() async {
     try {
+      // ignore: unused_local_variable
       final response = await get('');
       return true;
     } catch (e) {
